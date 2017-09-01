@@ -1,0 +1,59 @@
+//Yadira Ramírez Sosa 
+
+matriz circulos;
+
+
+void setup()
+{
+  size(600,600);
+  circulos= new matriz (5,100,250,250,0,0);
+ 
+}
+
+void draw()
+{
+  background(#FFD8DA);
+  circulos.zoom();
+  circulos.display();
+  
+}
+
+class matriz
+{
+  int t, u, x, y, i, j;
+  
+  matriz(int t_, int u_, int x_, int y_, int i_, int j_)
+  {
+    t=t_;
+    u=u_;
+    x=x_;
+    y=y_;
+    i=i_;
+    j=j_;
+  }
+  
+  void zoom()
+ {
+
+    if ((mouseX >= x & mouseX <= x+x) & (mouseY >= y & mouseY <= y+x)) 
+    {
+    t= 80;
+    }
+    else 
+    {
+    t= 40;
+    }
+  }
+  
+  void display()
+  {
+    for (i = 0; i<u; i+=t)
+    {
+      for (j = 0; j<u; j+=t)
+      {
+        fill (random(255));
+        ellipse (x+i,y+j,t,t);
+      }
+    } 
+  }
+}
